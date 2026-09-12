@@ -11,10 +11,16 @@ const Home = () => {
     <div className="flex flex-col min-h-screen ">
       <Header />
       <Hero />
-      <main className="flex-grow flex flex-col bg-gray-100 text-gray-900p-4">
-        <FilterSection />
-        <FeaturedSection />
-        <TestimonialSection />
+      <main className="flex-grow flex flex-col bg-gray-100 text-gray-900 ">
+        <div className="p-12">
+          <FilterSection />
+        </div>
+        <div id="inventory">
+          <FeaturedSection />
+        </div>
+        <div className="p-12">
+          <TestimonialSection />
+        </div>
       </main>
       <Footer />
     </div>

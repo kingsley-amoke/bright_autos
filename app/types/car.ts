@@ -3,6 +3,7 @@ import { Manufacturer } from "./manufacturer";
 
 export type Car = {
 id: string;
+title: string;
 model: string;
 year: number;
 color: string;

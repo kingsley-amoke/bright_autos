@@ -38,7 +38,9 @@ const Hero = () => {
         <SearchBar handleSearch={() => {}} />
 
         <div className="flex gap-4 justify-center mt-4">
-          <PrimaryButton />
+          <PrimaryButton>
+            <p>Browse Inventory</p>
+          </PrimaryButton>
           <SecondaryButton />
         </div>
       </div>
