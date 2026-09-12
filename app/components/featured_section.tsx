@@ -17,7 +17,7 @@ const FeaturedSection = () => {
           View full digital showroom
         </Link>
       </div>
-      <div className="grid grid-cols-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8 w-full ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8 w-full ">
         {cars.slice(0, 4).map((car) => (
           <CarCard car={car} key={car.id} />
         ))}

@@ -7,8 +7,10 @@ import SearchBar from "./search_bar";
 import Image from "next/image";
 
 import bgHero from "@/public/assets/images/hero.png";
+import { useRouter } from "next/navigation";
 
 const Hero = () => {
+  const router = useRouter();
   return (
     <div className="relative mx-auto flex flex-col items-center justify-center py-20 min-h-[600px] w-full overflow-hidden">
       <Image
@@ -25,7 +27,6 @@ const Hero = () => {
         }}
       />
 
-      {/* Content wrapper with higher z-index to stay on top */}
       <div className="relative z-10 text-center flex flex-col gap-4 text-white">
         <h2 className="text-5xl font-bold">Find Your Next Car With</h2>
         <h2 className="text-5xl font-bold">Confidence</h2>
@@ -38,7 +39,7 @@ const Hero = () => {
         <SearchBar handleSearch={() => {}} />
 
         <div className="flex gap-4 justify-center mt-4">
-          <PrimaryButton>
+          <PrimaryButton onClick={() => router.push("inventory")}>
             <p>Browse Inventory</p>
           </PrimaryButton>
           <SecondaryButton />

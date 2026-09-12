@@ -1,19 +1,16 @@
+"use client";
+
 import Image from "next/image";
-import {
-  Leaf,
-  Gauge,
-  Cpu,
-  SlidersHorizontal,
-  ArrowRight,
-  Icon,
-} from "lucide-react";
+import { Gauge, Cpu, SlidersHorizontal, ArrowRight } from "lucide-react";
 import { Car } from "../types/car";
 import PrimaryButton from "./primary_button";
+import { useRouter } from "next/navigation";
 
 export default function CarCard({ car }: { car: Car }) {
+  const router = useRouter();
+
   return (
     <div className="w-full max-w-xl overflow-hidden rounded-3xl border border-slate-800 bg-[#111827] shadow-xl shadow-black/30">
-      {/* Photo */}
       <div className="relative aspect-[4/3] w-full">
         <Image
           priority
@@ -43,7 +40,6 @@ export default function CarCard({ car }: { car: Car }) {
           </span>
         </div>
 
-        {/* Title + price */}
         <h3 className="text-2xl font-bold leading-tight text-white">
           {car.title}
         </h3>
@@ -69,7 +65,10 @@ export default function CarCard({ car }: { car: Car }) {
           </div>
         </div>
 
-        <PrimaryButton className="mt-6 flex w-full items-center justify-center gap-2 bg-orange-500 px-4 py-2 text-white hover:bg-orange-600">
+        <PrimaryButton
+          className="mt-6 flex w-full items-center justify-center gap-2 bg-orange-500 px-4 py-2 text-white hover:bg-orange-600"
+          onClick={() => router.push(`/inventory/${car.id}`)}
+        >
           <p>View Details</p>
           <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
         </PrimaryButton>
