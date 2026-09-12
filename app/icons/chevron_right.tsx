@@ -1,0 +1,23 @@
+import React from "react";
+
+const ChevronRightIcon = ({ className = "w-6 h-6" }) => {
+  return (
+    <svg
+      width="40"
+      height="40"
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15 30L25 20L15 10"
+        stroke="#525252"
+        stroke-width="5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export default ChevronRightIcon;
