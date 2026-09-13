@@ -4,18 +4,20 @@ import CarIcon from "../icons/car_icon";
 import EmailIcon from "../icons/email_icon";
 import FacebookIcon from "../icons/facebook_icon";
 import InstagramIcon from "../icons/instagram_icon";
+import Link from "next/link";
 
 const Footer = () => {
   return (
     <div className="bg-gray-800 text-white p-4 px-12">
       <div className="flex flex-wrap justify-between gap-4">
         <div>
-          <div className="flex items-center space-x-2">
-            <div className={`bg-${primaryColor} px-2 py-3 rounded-md`}>
+          <Link href="/" className="flex items-center space-x-2">
+            <div className={`rounded-md bg-${primaryColor} px-2 py-3`}>
               <CarIcon />
             </div>
-            <h1 className="text-xl font-bold uppercase">brightson autos</h1>
-          </div>
+
+            <h1 className="text-xl font-bold uppercase">Brightson Autos</h1>
+          </Link>
           <p className="mt-2 text-sm text-gray-400">
             Your trusted partner for quality vehicles and exceptionally services
           </p>

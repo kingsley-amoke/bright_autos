@@ -21,6 +21,7 @@ const Hero = () => {
         fill
         sizes="100vw"
         priority
+        className="blur-sm"
         style={{
           objectFit: "cover",
           zIndex: -1,
@@ -42,7 +43,9 @@ const Hero = () => {
           <PrimaryButton onClick={() => router.push("inventory")}>
             <p>Browse Inventory</p>
           </PrimaryButton>
-          <SecondaryButton />
+          <SecondaryButton onClick={() => {}}>
+            Sell/Trade Your Car
+          </SecondaryButton>
         </div>
       </div>
     </div>

@@ -5,11 +5,20 @@ import CarIcon from "../icons/car_icon";
 import { primaryColor } from "../colors/colors";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const closeMenu = () => setIsMenuOpen(false);
+
+  const navLinks = [
+    { name: "Inventory", href: "/inventory" },
+    { name: "Services", href: "/services" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
+  ];
 
   return (
     <header className="relative bg-gray-800 px-4 py-4 text-white sm:px-6 lg:px-12">
@@ -25,45 +34,28 @@ const Header = () => {
 
           <h1 className="text-xl font-bold uppercase">Brightson Autos</h1>
         </Link>
-
         <nav className="hidden md:block">
           <ul className="flex space-x-6">
-            <li>
-              <Link
-                href="/inventory"
-                className="transition hover:text-orange-500"
-              >
-                Inventory
-              </Link>
-            </li>
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
 
-            <li>
-              <Link
-                href="/services"
-                className="transition hover:text-orange-500"
-              >
-                Services
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/about" className="transition hover:text-orange-500">
-                About
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/contact"
-                className="transition hover:text-orange-500"
-              >
-                Contact
-              </Link>
-            </li>
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`transition ${
+                      isActive ? "text-orange-500" : "hover:text-orange-500"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
         <div></div>
-
+        {/* Mobile Menu Button */}
         <button
           type="button"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -81,45 +73,25 @@ const Header = () => {
       {isMenuOpen && (
         <nav className="border-t border-gray-700 pt-4 md:hidden">
           <ul className="flex flex-col gap-1">
-            <li>
-              <Link
-                href="/inventory"
-                onClick={closeMenu}
-                className="block rounded-md px-3 py-3 transition hover:bg-gray-700 hover:text-orange-500"
-              >
-                Inventory
-              </Link>
-            </li>
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
 
-            <li>
-              <Link
-                href="/services"
-                onClick={closeMenu}
-                className="block rounded-md px-3 py-3 transition hover:bg-gray-700 hover:text-orange-500"
-              >
-                Services
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/about"
-                onClick={closeMenu}
-                className="block rounded-md px-3 py-3 transition hover:bg-gray-700 hover:text-orange-500"
-              >
-                About
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/contact"
-                onClick={closeMenu}
-                className="block rounded-md px-3 py-3 transition hover:bg-gray-700 hover:text-orange-500"
-              >
-                Contact
-              </Link>
-            </li>
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={closeMenu}
+                    className={`block rounded-md px-3 py-3 transition ${
+                      isActive
+                        ? "bg-gray-700 text-orange-500"
+                        : "hover:bg-gray-700 hover:text-orange-500"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       )}

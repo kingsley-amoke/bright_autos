@@ -9,10 +9,7 @@ const SearchBar = ({
   handleSearch: (e: React.FormEvent<HTMLFormElement>) => void;
 }) => {
   return (
-    <form
-      onSubmit={handleSearch}
-      className="flex items-center w-full max-w-md lg:max-w-2xl mx-auto"
-    >
+    <form onSubmit={handleSearch} className="flex w-full max-w-md lg:max-w-2xl">
       <div className="relative flex-1">
         <SearchIcon />
         <input

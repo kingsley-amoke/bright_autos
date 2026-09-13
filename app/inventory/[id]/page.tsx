@@ -74,7 +74,7 @@ const CarDetails = () => {
 
             <PrimaryButton
               className="mt-6 flex w-full items-center justify-center gap-2 bg-orange-500 px-4 py-2 text-white hover:bg-orange-600"
-              onClick={() => router.push(`/inventory/${car.id}`)}
+              onClick={() => router.push(`/contact`)}
             >
               <p>Buy Now</p>
               <ArrowRight className="h-4 w-4" strokeWidth={2.5} />

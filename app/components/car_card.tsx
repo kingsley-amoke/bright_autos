@@ -1,13 +1,31 @@
 "use client";
 
 import Image from "next/image";
-import { Gauge, Cpu, SlidersHorizontal, ArrowRight } from "lucide-react";
+import {
+  Gauge,
+  Cpu,
+  SlidersHorizontal,
+  ArrowRight,
+  Fuel,
+  LucideIcon,
+  Zap,
+  Leaf,
+} from "lucide-react";
 import { Car } from "../types/car";
 import PrimaryButton from "./primary_button";
 import { useRouter } from "next/navigation";
+import { FuelType } from "../types/fuel_type";
 
 export default function CarCard({ car }: { car: Car }) {
   const router = useRouter();
+
+  const fuelIcons: Record<FuelType["icon"], LucideIcon> = {
+    fuel: Fuel,
+    leaf: Leaf,
+    zap: Zap,
+  };
+
+  const FuelIcon = fuelIcons[car.type.icon];
 
   return (
     <div className="w-full max-w-xl overflow-hidden rounded-3xl border border-slate-800 bg-[#111827] shadow-xl shadow-black/30">
@@ -31,7 +49,7 @@ export default function CarCard({ car }: { car: Car }) {
               color: car.type.color,
             }}
           >
-            <car.type.icon className="h-3.5 w-3.5" strokeWidth={2.5} />
+            <FuelIcon className="h-3.5 w-3.5" strokeWidth={2.5} />
             {car.type.name}
           </span>
 

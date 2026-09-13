@@ -1,12 +1,21 @@
 import React from "react";
 
-const SecondaryButton = () => {
+const SecondaryButton = ({
+  children,
+  className,
+  onClick,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  onClick: () => void;
+}) => {
   return (
-    <div className="cursor-pointer">
-      <button className="bg-gray-100 text-gray-800 px-4 py-2 rounded ">
-        Sell/Trade Your Car
-      </button>
-    </div>
+    <button
+      className={`bg-gray-100 text-gray-800 px-4 py-2 rounded ${className || null}`}
+      onClick={onClick}
+    >
+      {children}
+    </button>
   );
 };
 
