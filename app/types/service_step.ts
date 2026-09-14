@@ -1,0 +1,1 @@
+export type ServiceStep ={icon:string, title:string, description:string}

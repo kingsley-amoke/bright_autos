@@ -2,9 +2,11 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import ServicesHero from "./hero";
 import ServicesStats from "./stats";
-import { services } from "../db/services";
+import { services } from "../constants/services";
 import ServiceCard from "./service_card";
 import MyVehicle from "./my_vehice";
+import ScheduleSection from "./schedule_section";
+import FAQSection from "./faq_section";
 
 const Services = () => {
   return (
@@ -31,6 +33,8 @@ const Services = () => {
           </div>
         </div>
         <MyVehicle />
+        <ScheduleSection />
+        <FAQSection />
       </main>
       <Footer />
     </div>

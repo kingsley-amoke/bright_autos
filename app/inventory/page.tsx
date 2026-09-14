@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { cars } from "../db/cars";
+import { cars } from "../constants/cars";
 import CarCard from "../components/car_card";
 import Header from "../components/header";
 import Footer from "../components/footer";

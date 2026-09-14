@@ -8,25 +8,13 @@ import Image from "next/image";
 
 import bgHero from "@/public/assets/images/hero.png";
 import { useRouter } from "next/navigation";
+import HeroBgImage from "./hero_bg_image";
 
 const Hero = () => {
   const router = useRouter();
   return (
     <div className="relative mx-auto flex flex-col items-center justify-center py-20 min-h-[600px] w-full overflow-hidden">
-      <Image
-        src={bgHero}
-        alt="Background Image"
-        placeholder="blur"
-        quality={100}
-        fill
-        sizes="100vw"
-        priority
-        className="blur-sm"
-        style={{
-          objectFit: "cover",
-          zIndex: -1,
-        }}
-      />
+      <HeroBgImage bgHero={bgHero} />
 
       <div className="relative z-10 text-center flex flex-col gap-4 text-white">
         <h2 className="text-5xl font-bold">Find Your Next Car With</h2>

@@ -1,31 +1,18 @@
-'use client';
+"use client";
 
 import React from "react";
 import PrimaryButton from "../components/primary_button";
 import SecondaryButton from "../components/secondary_button";
 import { ArrowRight, Phone } from "lucide-react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import bgHero from "@/public/assets/images/services.jpg";
+import HeroBgImage from "../components/hero_bg_image";
 
 const ServicesHero = () => {
   const router = useRouter();
   return (
     <div className="relative mx-auto flex flex-col items-start justify-center py-20 min-h-[600px] w-full overflow-hidden">
-      <Image
-        src={bgHero}
-        alt="Background Image"
-        placeholder="blur"
-        quality={100}
-        fill
-        sizes="100vw"
-        priority
-        className="blur-sm"
-        style={{
-          objectFit: "cover",
-          zIndex: -1,
-        }}
-      />
+      <HeroBgImage bgHero={bgHero} />
 
       <div className="relative z-10 text-center flex flex-col gap-4 text-white p-12">
         <h2 className="text-5xl font-bold">Every Service</h2>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { testimonials } from "../db/testimonials";
+import { testimonials } from "../constants/testimonials";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import TestimonialCard from "./testimonial_card";

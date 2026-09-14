@@ -1,6 +1,6 @@
 import React from "react";
 import CarCard from "./car_card";
-import { cars } from "../db/cars";
+import { cars } from "../constants/cars";
 import Link from "next/link";
 
 const FeaturedSection = () => {
