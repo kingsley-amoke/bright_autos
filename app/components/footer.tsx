@@ -26,22 +26,22 @@ const Footer = () => {
           <h2 className="text-lg font-bold">Quick Links</h2>
           <ul className="mt-2 space-y-1">
             <li>
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a href="/inventory" className="text-gray-400 hover:text-white">
                 Inventory
               </a>
             </li>
             <li>
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a href="/services" className="text-gray-400 hover:text-white">
                 Services
               </a>
             </li>
             <li>
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a href="/about" className="text-gray-400 hover:text-white">
                 About Us
               </a>
             </li>
             <li>
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a href="/contact" className="text-gray-400 hover:text-white">
                 Contact
               </a>
             </li>
@@ -66,7 +66,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a href="warranty" className="text-gray-400 hover:text-white">
                 Warranties
               </a>
             </li>
@@ -76,14 +76,14 @@ const Footer = () => {
           <h2 className="text-lg font-bold">Directory</h2>
           <ul className="mt-2 space-y-1">
             <li>
-              <a href="#" className="text-gray-400 hover:text-white">
+              <Link href="/terms" className="text-gray-400 hover:text-white">
                 Terms & Conditions
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="text-gray-400 hover:text-white">
+              <Link href="/privacy" className="text-gray-400 hover:text-white">
                 Privacy & Policies
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

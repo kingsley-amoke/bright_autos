@@ -66,7 +66,7 @@ function FaqAccordion({
   };
 
   return (
-    <div className="mx-auto mt-8 flex max-w-2xl flex-col gap-3">
+    <div className="mx-auto mt-8 flex max-w-6xl flex-col gap-3">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
 

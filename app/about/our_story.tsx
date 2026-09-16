@@ -14,7 +14,7 @@ const BLOB_COLORS: { dark: string; orange: string } = {
 
 interface SquiggleProps {
   className?: string;
-  color?: string; // e.g., "#3b82f6" or "red"
+  color?: string; //
 }
 
 export function Squiggle({ className = "", color }: SquiggleProps) {

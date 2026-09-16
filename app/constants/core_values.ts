@@ -20,7 +20,7 @@ export const coreValues: Array<CoreValue> = [
         title: 'QUALITY',
         description: "From the vehicles we offer to the services we provide, we maintain high standards of quality, reliability, and professionalism.",
         color : "#4DD4701A",
-        icon: "shield",
+        icon: "shieldcheck",
     
 },
     {

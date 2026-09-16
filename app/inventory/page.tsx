@@ -12,7 +12,7 @@ const InventoryPage = () => {
     <div className="min-h-screen w-full overflow-x-hidden">
       <Header />
 
-      <main className="my-8 grid w-full grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:px-6 md:grid-cols-3 lg:grid-cols-4 lg:px-12">
+      <main className="my-8 grid w-full grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:px-6 md:grid-cols-3 lg:px-12 max-w-6xl mx-auto">
         {cars.map((car) => (
           <CarCard key={car.id} car={car} />
         ))}

@@ -1,0 +1,1 @@
+export const memberCategories: Array<string> = ["Leadership", "Sales", "Service", "Customer Care"]

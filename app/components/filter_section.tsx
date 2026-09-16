@@ -6,7 +6,7 @@ import FilterDropDown from "./filter_dropdown";
 
 const FilterSection = () => {
   return (
-    <div>
+    <div className="mx-auto max-w-6xl">
       <div className="mb-4">
         <h3 className="font-bold text-3xl">Quick Vehicle Search</h3>
         <p className="text-gray-600">Refine your results with quick filters.</p>
@@ -114,7 +114,7 @@ const FilterSection = () => {
         </div>
       </div>
       <div className="flex justify-center mt-4">
-        <PrimaryButton>Search</PrimaryButton>
+        <PrimaryButton onClick={() => {}}>Search</PrimaryButton>
       </div>
     </div>
   );
