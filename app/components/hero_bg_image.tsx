@@ -6,7 +6,7 @@ const HeroBgImage = ({ bgHero }: { bgHero: StaticImageData | string }) => {
       <Image
         src={bgHero}
         alt="Background Image"
-        placeholder="blur"
+        // placeholder="blur"
         quality={75}
         fill
         sizes="100vw"
