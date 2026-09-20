@@ -86,7 +86,7 @@ function FaqAccordion({
               className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
             >
               <span
-                className={`text-sm ${
+                className={`text-md ${
                   isOpen
                     ? "font-bold text-slate-900"
                     : "font-medium text-slate-600"

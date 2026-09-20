@@ -63,7 +63,7 @@ export default function ContactForm({
   return (
     <div>
       <div className="mb-6">
-        <p className="text-xs font-bold tracking-wide text-orange-500">
+        <p className="font-bold tracking-wide text-orange-500">
           — Get in Touch
         </p>
         <h2 className="mt-1 text-2xl font-extrabold text-slate-900">
@@ -81,7 +81,7 @@ export default function ContactForm({
           <div key={section.id ?? i}>
             {section.title && (
               <div className="mb-3 flex items-center gap-2">
-                <p className="text-xs font-bold tracking-wide text-orange-500">
+                <p className="font-bold tracking-wide text-orange-500">
                   {section.title.toUpperCase()}
                 </p>
               </div>

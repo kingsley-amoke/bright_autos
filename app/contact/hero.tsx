@@ -29,7 +29,7 @@ const ContactHero = () => {
               <PrimaryButton onClick={() => router.push("inventory")}>
                 <p>Browse Inventory</p>
               </PrimaryButton>
-              <SecondaryButton onClick={() => {}}>
+              <SecondaryButton onClick={() => router.push("#contact")}>
                 Sell/Trade Your Car
               </SecondaryButton>
             </div>

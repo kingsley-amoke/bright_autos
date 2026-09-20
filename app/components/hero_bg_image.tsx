@@ -1,22 +1,23 @@
 import Image, { StaticImageData } from "next/image";
-import React from "react";
 
 const HeroBgImage = ({ bgHero }: { bgHero: StaticImageData | string }) => {
   return (
-    <Image
-      src={bgHero}
-      alt="Background Image"
-      placeholder="blur"
-      quality={100}
-      fill
-      sizes="100vw"
-      priority
-      className="blur-sm"
-      style={{
-        objectFit: "cover",
-        zIndex: -1,
-      }}
-    />
+    <div className="absolute inset-0 -z-10 overflow-hidden">
+      <Image
+        src={bgHero}
+        alt="Background Image"
+        placeholder="blur"
+        quality={75}
+        fill
+        sizes="100vw"
+        priority
+        style={{
+          objectFit: "cover",
+        }}
+      />
+
+      <div className="absolute inset-0 backdrop-blur-sm bg-[#1E293B99]/40" />
+    </div>
   );
 };
 

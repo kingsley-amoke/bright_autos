@@ -10,13 +10,13 @@ import FAQSection from "./faq_section";
 
 const Services = () => {
   return (
-    <div>
+    <div className="bg-white text-black">
       <Header />
       <main>
         <ServicesHero />
         <ServicesStats />
         <div className="flex flex-col justify-center items-center mx-12 p-12 bg-slate-200 rounded-xl">
-          <p className="text-orange-500">What we offer</p>
+          <p className="text-orange-500 text-xl">What we offer</p>
           <h2 className="text-black font-bold text-2xl my-4">
             Our Core Services
           </h2>

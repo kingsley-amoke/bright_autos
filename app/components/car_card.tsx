@@ -28,7 +28,7 @@ export default function CarCard({ car }: { car: Car }) {
   const FuelIcon = fuelIcons[car.type.icon];
 
   return (
-    <div className="w-full max-w-xl overflow-hidden rounded-3xl border border-slate-800 bg-[#111827] shadow-xl shadow-black/30">
+    <div className="w-full max-w-2xl overflow-hidden rounded-3xl border border-slate-800 bg-[#111827] shadow-xl shadow-black/30">
       <div className="relative aspect-[4/3] w-full">
         <Image
           priority
@@ -79,7 +79,7 @@ export default function CarCard({ car }: { car: Car }) {
               className="h-4 w-4 text-slate-400"
               strokeWidth={2}
             />
-            <span>{car.transmission}</span>
+            <span className="capitalize">{car.transmission}</span>
           </div>
         </div>
 

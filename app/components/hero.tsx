@@ -12,6 +12,20 @@ import HeroBgImage from "./hero_bg_image";
 
 const Hero = () => {
   const router = useRouter();
+
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    const formData = new FormData(e.currentTarget);
+    const searchText = formData.get("query") as string;
+
+    if (!searchText) return;
+
+    if (searchText.trim()) {
+      router.push(`/inventory?search=${encodeURIComponent(searchText.trim())}`);
+    } else {
+      router.push("/inventory");
+    }
+  };
+
   return (
     <div className="relative mx-auto flex flex-col items-center justify-center py-20 min-h-[600px] w-full overflow-hidden">
       <HeroBgImage bgHero={bgHero} />
@@ -25,13 +39,13 @@ const Hero = () => {
           <p>backed by transparent pricing and exceptional customer service.</p>
         </div>
 
-        <SearchBar handleSearch={() => {}} />
+        <SearchBar handleSearch={handleSearch} />
 
         <div className="flex gap-4 justify-center mt-4">
           <PrimaryButton onClick={() => router.push("inventory")}>
             <p>Browse Inventory</p>
           </PrimaryButton>
-          <SecondaryButton onClick={() => {}}>
+          <SecondaryButton onClick={() => router.push("contact/#contact")}>
             Sell/Trade Your Car
           </SecondaryButton>
         </div>

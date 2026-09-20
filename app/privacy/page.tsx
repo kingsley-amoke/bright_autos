@@ -5,7 +5,7 @@ import { privacyData } from "../constants/privacy";
 
 const TermsPage = () => {
   return (
-    <div>
+    <div className="bg-white text-black">
       <Header />
       <TermsAndConditions
         title="TERMS & CONDITIONS"

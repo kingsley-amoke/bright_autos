@@ -13,7 +13,7 @@ import { memberCategories } from "../constants/member_categories";
 
 const About = () => {
   return (
-    <div>
+    <div className="bg-white text-black">
       <Header />
 
       <AboutHero />

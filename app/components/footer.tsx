@@ -5,6 +5,9 @@ import EmailIcon from "../icons/email_icon";
 import FacebookIcon from "../icons/facebook_icon";
 import InstagramIcon from "../icons/instagram_icon";
 import Link from "next/link";
+import { TicketIcon } from "lucide-react";
+import { FaTiktok } from "react-icons/fa";
+import { email, facebook, instagram, tiktok } from "../constants/contact_info";
 
 const Footer = () => {
   return (
@@ -90,14 +93,37 @@ const Footer = () => {
         <div>
           <h2 className="text-lg font-bold">Follow Us</h2>
           <div className="mt-2 flex space-x-4">
-            <a href="#" className="text-gray-400 hover:text-white">
+            <a
+              href={facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white"
+            >
               <FacebookIcon />
             </a>
-            <a href="#" className="text-gray-400 hover:text-white">
+            <a
+              href={`mail:${email}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white"
+            >
               <EmailIcon />
             </a>
-            <a href="#" className="text-gray-400 hover:text-white">
+            <a
+              href={instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white"
+            >
               <InstagramIcon />
+            </a>
+            <a
+              href={tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white"
+            >
+              <FaTiktok size={24} />
             </a>
           </div>
         </div>

@@ -2,6 +2,14 @@ import { OpeningHour } from "../types/opening_hour";
 
 export const phone = "(555) 234-5678";
 export const email = "sales@dealership.com";
+export const supportEmail = "";
+export const tiktok =
+  "https://www.tiktok.com/@brightson.realestateltd?_r=1&_t=ZG-99oQsfTFNrt";
+export const facebook =
+  "https://www.facebook.com/brightson.automobile?mibextid=wwXIfr";
+export const twitter = "";
+export const instagram =
+  "https://www.instagram.com/brightson__autos?stkn=MWoydnN6cDN1Y2s0eg==";
 
 export const openingHours: Array<OpeningHour> = [
   { days: "Monday - Friday", time: "9:00 AM - 8:00 PM", status: "open" },

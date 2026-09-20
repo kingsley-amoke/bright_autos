@@ -15,13 +15,14 @@ import {
   openingHours,
   phone,
 } from "../constants/contact_info";
+import { contactActions } from "../constants/contact_actions";
 
 const ContactUs = () => {
   const handleSubmitForm = (values: Record<string, string>) => {
     console.log(values);
   };
   return (
-    <div>
+    <div className="bg-white text-black">
       <Header />
       <section>
         <ContactHero />
@@ -31,7 +32,7 @@ const ContactUs = () => {
         <div className="max-w-6xl mx-auto">
           <h2 className="font-bold text-3xl">Contact Options</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 my-12">
-            {quickActions.map((action, i) => (
+            {contactActions.map((action, i) => (
               <QuickActionCard action={action} key={i} />
             ))}
           </div>
@@ -41,7 +42,10 @@ const ContactUs = () => {
       <section className={`w-full bg-slate-50 p-12`}>
         <div className="mx-auto max-w-6xl grid grid-cols-1 gap-8 lg:grid-cols-[minmax(260px,320px)_1fr]">
           <ContactSidebar phone={phone} email={email} schedule={openingHours} />
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+          <div
+            id="contact"
+            className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8"
+          >
             <ContactForm
               sections={contactSections}
               onSubmit={handleSubmitForm}

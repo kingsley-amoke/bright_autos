@@ -1,10 +1,62 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import PrimaryButton from "./primary_button";
 import FilterDropDown from "./filter_dropdown";
+import { useRouter } from "next/navigation";
 
 const FilterSection = () => {
+  const router = useRouter();
+
+  const [condition, setCondition] = useState("all");
+  const [make, setMake] = useState("all");
+  const [model, setModel] = useState("all");
+  const [price, setPrice] = useState("all");
+  const [year, setYear] = useState("all");
+  const [bodyType, setBodyType] = useState("all");
+  const [mileage, setMileage] = useState("all");
+  const [location, setLocation] = useState("all");
+
+  const handleFilter = () => {
+    const params = new URLSearchParams();
+
+    if (condition !== "all") {
+      params.set("condition", condition);
+    }
+
+    if (make !== "all") {
+      params.set("make", make);
+    }
+
+    if (model !== "all") {
+      params.set("model", model);
+    }
+
+    if (price !== "all") {
+      params.set("price", price);
+    }
+
+    if (year !== "all") {
+      params.set("year", year);
+    }
+
+    if (bodyType !== "all") {
+      params.set("bodyType", bodyType);
+    }
+
+    if (mileage !== "all") {
+      params.set("mileage", mileage);
+    }
+
+    if (location !== "all") {
+      params.set("location", location);
+    }
+
+    const queryString = params.toString();
+
+    router.push(queryString ? `/inventory?${queryString}` : "/inventory");
+  };
+
   return (
     <div className="mx-auto max-w-6xl">
       <div className="mb-4">
@@ -21,7 +73,7 @@ const FilterSection = () => {
               { label: "Used", value: "used" },
               { label: "Certified Pre-Owned", value: "certified" },
             ]}
-            onChange={(value) => {}}
+            onChange={(value) => setCondition(value)}
           />
         </div>
         <div className="shadow-sm p-4 rounded-xl bg-white">
@@ -29,7 +81,10 @@ const FilterSection = () => {
           <FilterDropDown
             value={"all"}
             options={[{ label: "All Make", value: "all" }]}
-            onChange={(value) => {}}
+            onChange={(value) => {
+              setMake(value);
+              setModel("all");
+            }}
           />
         </div>
         <div className="shadow-sm p-4 rounded-xl bg-white">
@@ -37,7 +92,7 @@ const FilterSection = () => {
           <FilterDropDown
             value={"all"}
             options={[{ label: "All Model", value: "all" }]}
-            onChange={(value) => {}}
+            onChange={(value) => setModel(value)}
           />
         </div>
         <div className="shadow-sm p-4 rounded-xl bg-white">
@@ -51,7 +106,7 @@ const FilterSection = () => {
               { label: "$40,000 - $60,000", value: "40k-60k" },
               { label: "$60,000+", value: "60k-plus" },
             ]}
-            onChange={(value) => {}}
+            onChange={(value) => setPrice(value)}
           />
         </div>
         <div className="shadow-sm p-4 rounded-xl bg-white">
@@ -70,7 +125,7 @@ const FilterSection = () => {
               { label: "2016", value: "2016" },
               { label: "2015", value: "2015" },
             ]}
-            onChange={(value) => {}}
+            onChange={(value) => setYear(value)}
           />
         </div>
         <div className="shadow-sm p-4 rounded-xl bg-white">
@@ -87,7 +142,7 @@ const FilterSection = () => {
               { label: "Hatchback", value: "hatchback" },
               { label: "Van", value: "van" },
             ]}
-            onChange={(value) => {}}
+            onChange={(value) => setBodyType(value)}
           />
         </div>
         <div className="shadow-sm p-4 rounded-xl bg-white">
@@ -101,7 +156,7 @@ const FilterSection = () => {
               { label: "50,000 - 100,000 miles", value: "50k-100k" },
               { label: "100,000+ miles", value: "100k-plus" },
             ]}
-            onChange={(value) => {}}
+            onChange={(value) => setMileage(value)}
           />
         </div>
         <div className="shadow-sm p-4 rounded-xl bg-white">
@@ -109,12 +164,12 @@ const FilterSection = () => {
           <FilterDropDown
             value={"all"}
             options={[{ label: "All Locations", value: "all" }]}
-            onChange={(value) => {}}
+            onChange={(value) => setLocation(value)}
           />
         </div>
       </div>
       <div className="flex justify-center mt-4">
-        <PrimaryButton onClick={() => {}}>Search</PrimaryButton>
+        <PrimaryButton onClick={handleFilter}>Search</PrimaryButton>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ const ServicesHero = () => {
           <h2 className="text-5xl font-bold">You Need.</h2>
           <h2 className="text-5xl font-bold text-orange-200/70">One Place.</h2>
 
-          <div className="my-4 text-gray-600">
+          <div className="my-4 text-white/80">
             <p>
               From financing to full-service maintenance, we handle every aspect
             </p>

@@ -6,7 +6,7 @@ import { termsData } from "../constants/terms";
 
 const TermsPage = () => {
   return (
-    <div>
+    <div className="bg-white text-black">
       <Header />
       <TermsAndConditions
         title="TERMS & CONDITIONS"

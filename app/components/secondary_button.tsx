@@ -11,7 +11,7 @@ const SecondaryButton = ({
 }) => {
   return (
     <button
-      className={`bg-gray-100 text-gray-800 px-4 py-2 rounded ${className || null}`}
+      className={`bg-gray-100 cursor-pointer text-gray-800 px-4 py-2 rounded ${className || null}`}
       onClick={onClick}
     >
       {children}

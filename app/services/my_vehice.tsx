@@ -1,15 +1,49 @@
 "use client";
 
 import { FileWarning, RefreshCcwIcon, TriangleAlert } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import SearchBar from "../components/search_bar";
 import MyVehicleCard from "./my_vehicle_card";
 import { quickActions } from "../constants/quick_actions";
 import QuickActionCard from "./quick_action_card";
 import ResolveVehicle from "../components/resolve_vehicle";
+import { cars } from "../constants/cars";
 
 const MyVehicle = () => {
-  const handleSearch = async () => {};
+  const [myCar, setMyCar] = useState(cars[0]);
+  const [notFoundText, setNotFoundText] = useState<string | null>(null);
+
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    const formData = new FormData(e.currentTarget);
+    const searchText = formData.get("query") as string;
+
+    if (!searchText) {
+      console.log("no search");
+      return;
+    }
+
+    if (searchText.trim()) {
+      const car = cars.find(
+        (car) =>
+          car.condition?.toLowerCase().includes(searchText) ||
+          car.model?.toLowerCase().includes(searchText) ||
+          car.drive?.toLowerCase().includes(searchText) ||
+          car.transmission?.toLowerCase().includes(searchText) ||
+          car.title?.toLowerCase().includes(searchText) ||
+          car.color?.toLowerCase().includes(searchText) ||
+          car.manufacturer.name?.toLowerCase().includes(searchText) ||
+          car.year?.toString().includes(searchText),
+      );
+
+      if (!car) {
+        setNotFoundText("Car not in our inventory");
+
+        return;
+      }
+
+      setMyCar(car);
+    }
+  };
 
   return (
     <div className="my-12 p-12 bg-slate-200 text-black">
@@ -27,12 +61,12 @@ const MyVehicle = () => {
             <RefreshCcwIcon />
           </div>
         </div>
-        <div className="my-12">
-          <SearchBar handleSearch={() => handleSearch} />
+        <div className="my-12 ">
+          <SearchBar handleSearch={handleSearch} />
         </div>
         <div className="flex flex-col md:flex-row gap-16 justify-between items-start">
           <div className="flex-1">
-            <MyVehicleCard />
+            <MyVehicleCard car={myCar} />
           </div>
           <div className="flex-1">
             <p className="font-bold uppercase text-2xl">Quick Actions</p>

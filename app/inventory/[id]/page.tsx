@@ -12,7 +12,7 @@ const CarDetailsPage = () => {
 
   const car: Car = cars.find((c) => c.id == id)!;
   return (
-    <div>
+    <div className="bg-white text-black">
       <Header />
       <main className="flex justify-center items-center w-full p-12">
         <CarDetails car={car} />

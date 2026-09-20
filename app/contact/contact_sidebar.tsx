@@ -29,9 +29,9 @@ function HotlineCard({ phone, email }: { phone: string; email: string }) {
           <Phone className="h-4 w-4 text-orange-400" strokeWidth={2} />
         </div>
         <div className="min-w-0">
-          <p className="text-sm font-semibold">Direct Sales Hotline</p>
+          <p className="font-semibold">Direct Sales Hotline</p>
 
-          <p className="mt-0.5 text-xs text-slate-400">
+          <p className="mt-0.5 text-slate-400">
             Speak directly with our sales team
           </p>
         </div>
@@ -64,7 +64,7 @@ function HoursCard({ schedule = [] }: { schedule: Array<OpeningHour> }) {
       <div className="flex items-center gap-2">
         <Clock className="h-4 w-4 text-slate-400" strokeWidth={2} />
 
-        <p className="text-sm font-semibold text-slate-900">Dealership Hours</p>
+        <p className="font-semibold text-xl text-slate-900">Dealership Hours</p>
       </div>
 
       <div className="mt-3 flex flex-col gap-2.5">
@@ -73,7 +73,7 @@ function HoursCard({ schedule = [] }: { schedule: Array<OpeningHour> }) {
           return (
             <div
               key={row.days ?? i}
-              className="flex items-center justify-between text-xs"
+              className="flex items-center justify-between text-sm"
             >
               <span className="text-slate-500">{row.days}</span>
               <span
@@ -97,12 +97,12 @@ function GuaranteeCard() {
       <div className="flex items-center gap-2">
         <ShieldCheck className="h-4 w-4 text-orange-500" strokeWidth={2} />
 
-        <p className="text-sm font-semibold text-slate-900">
+        <p className="font-semibold text-slate-900">
           Rapid Response Guarantee"
         </p>
       </div>
 
-      <p className="mt-2 text-xs leading-relaxed text-slate-500">
+      <p className="mt-2 text-sm leading-relaxed text-slate-500">
         If a specific vehicle isn't listed through this form, one of our
         specialists will respond within one business day.
       </p>

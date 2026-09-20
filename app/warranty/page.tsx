@@ -7,7 +7,7 @@ import CoverageSection from "./coverage";
 
 const WarrantyPlans = () => {
   return (
-    <div>
+    <div className="bg-white text-black">
       <Header />
       <section className="w-full bg-white text-slate-800 antialiased">
         <WarrantyHero />
@@ -15,7 +15,7 @@ const WarrantyPlans = () => {
       <section className="py-16 bg-slate-50 border-y border-slate-100">
         <OverviewSection />
       </section>
-      <section className="py-16 sm:py-20">
+      <section id="warranty-plans" className="py-16 sm:py-20">
         <CoverageSection />
       </section>
       <Footer />

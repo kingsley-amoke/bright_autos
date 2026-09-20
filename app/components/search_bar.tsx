@@ -1,18 +1,23 @@
-"use client";
-
 import React from "react";
 import SearchIcon from "../icons/search_icon";
+import { useRouter } from "next/navigation";
 
 const SearchBar = ({
   handleSearch,
 }: {
   handleSearch: (e: React.FormEvent<HTMLFormElement>) => void;
 }) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleSearch(e);
+  };
+
   return (
-    <form onSubmit={handleSearch} className="flex w-full max-w-md lg:max-w-2xl">
+    <form onSubmit={handleSubmit} className="flex w-full max-w-md lg:max-w-2xl">
       <div className="relative flex-1">
         <SearchIcon />
         <input
+          name="query"
           type="text"
           placeholder="Search by make, model or keyword..."
           className="border border-gray-300 rounded-full pl-12 px-4 py-2 w-full bg-white focus:outline-none focus:ring-none focus:ring-orange-500 focus:border-orange-500 text-gray-700 placeholder-gray-400"

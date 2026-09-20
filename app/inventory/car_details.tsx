@@ -25,7 +25,7 @@ const CarDetails = ({
       <div className="flex justify-between items-center mb-4">
         <div>
           <h2 className="font-bold text-2xl">{car.title}</h2>
-          <p className="text-gray-500 text-sm">VIN: {car.vin}</p>
+          {/* <p className="text-gray-500 text-sm">VIN: {car.vin}</p> */}
         </div>
         <p className="capitalize">{car.condition}</p>
       </div>

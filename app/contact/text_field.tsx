@@ -28,7 +28,7 @@ const TextField = ({
       {field.label && (
         <label
           htmlFor={field.name}
-          className="mb-1.5 block text-xs font-medium text-slate-600"
+          className="mb-1.5 block text-sm font-medium text-slate-600"
         >
           {field.label}
           {field.required && <span className="text-orange-500"> *</span>}
@@ -73,7 +73,7 @@ const TextField = ({
                 key={opt.value}
                 type="button"
                 onClick={() => onChange(field.name, opt.value)}
-                className={`flex items-center gap-1.5 rounded-lg border px-3.5 py-2 text-xs font-medium transition-colors ${
+                className={`flex items-center gap-1.5 rounded-lg border px-3.5 py-2 text-sm font-medium transition-colors ${
                   isSelected
                     ? "border-orange-400 bg-orange-50 text-orange-600"
                     : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
