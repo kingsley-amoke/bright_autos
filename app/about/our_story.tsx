@@ -12,17 +12,21 @@ const BLOB_COLORS: { dark: string; orange: string } = {
   orange: "bg-orange-500",
 };
 
+type BlobColorKey = keyof typeof BLOB_COLORS;
+
 interface SquiggleProps {
   className?: string;
-  color?: string; //
+  color?: BlobColorKey;
 }
 
-export function Squiggle({ className = "", color }: SquiggleProps) {
+export function Squiggle({ className = "", color = "dark" }: SquiggleProps) {
+  const tailwindColorClass = BLOB_COLORS[color];
+
   return (
     <svg
       viewBox="0 0 40 20"
       fill="none"
-      className={className}
+      className={`${className} ${tailwindColorClass}`}
       style={color ? { color } : undefined}
       aria-hidden="true"
     >
@@ -45,7 +49,7 @@ function BlobImage({
 }: {
   src: string;
   alt: string;
-  color?: string;
+  color?: BlobColorKey;
   shapeIndex?: number;
   showDecorations?: boolean;
 }) {
@@ -97,7 +101,7 @@ function BlobImage({
           />
           <Squiggle
             className="absolute bottom-10 right-10 h-8 w-10"
-            color={color == "orange" ? "#00000" : "#ff6800"}
+            color={color === "orange" ? "dark" : "orange"}
           />
         </>
       )}
@@ -135,7 +139,7 @@ export function StoryRow({
       <BlobImage
         src={story.image}
         alt={imageAlt}
-        color={story.blobColor}
+        color={story.blobColor as BlobColorKey}
         shapeIndex={shapeIndex}
         showDecorations={showDecorations}
       />
