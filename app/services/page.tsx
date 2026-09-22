@@ -10,7 +10,7 @@ import FAQSection from "./faq_section";
 
 const Services = () => {
   return (
-    <div className="bg-white text-black">
+    <div className=" text-black">
       <Header />
       <main>
         <ServicesHero />

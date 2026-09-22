@@ -4,8 +4,6 @@ import React from "react";
 import PrimaryButton from "./primary_button";
 import SecondaryButton from "./secondary_button";
 import SearchBar from "./search_bar";
-import Image from "next/image";
-
 import bgHero from "@/public/assets/images/hero.png";
 import { useRouter } from "next/navigation";
 import HeroBgImage from "./hero_bg_image";

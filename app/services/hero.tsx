@@ -5,10 +5,10 @@ import PrimaryButton from "../components/primary_button";
 import SecondaryButton from "../components/secondary_button";
 import { ArrowRight, Phone } from "lucide-react";
 import { useRouter } from "next/navigation";
-import bgHero from "@/public/assets/images/services.jpg";
 import HeroBgImage from "../components/hero_bg_image";
 
 const ServicesHero = () => {
+  const bgHero = "/assets/images/services.jpg";
   const router = useRouter();
   return (
     <div className="relative mx-auto flex flex-col items-start justify-center py-20 min-h-[600px] w-full overflow-hidden">
