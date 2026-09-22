@@ -89,7 +89,6 @@ export default function TestimonialSection() {
         </div>
       </div>
 
-      {/* Testimonials */}
       <div className="relative w-full max-w-[1040px] overflow-visible mt-12">
         <AnimatePresence mode="wait" custom={direction} initial={false}>
           <motion.div
@@ -103,7 +102,7 @@ export default function TestimonialSection() {
               duration: 0.4,
               ease: "easeInOut",
             }}
-            className="flex flex-wrap items-center justify-center lg:gap-16 sm:gap-32 "
+            className="flex flex-wrap items-center justify-center gap-32 lg:gap-16 sm:gap-32 "
           >
             {visibleTestimonials.map((testimonial, index) => (
               <TestimonialCard
