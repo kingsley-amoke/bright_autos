@@ -14,7 +14,7 @@ const Header = () => {
   const closeMenu = () => setIsMenuOpen(false);
 
   const navLinks = [
-    { name: "Inventory", href: "/inventory" },
+    { name: "Inventory", href: "/" },
     { name: "Services", href: "/services" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
@@ -43,7 +43,7 @@ const Header = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`transition ${
+                    className={`transition text-xl ${
                       isActive ? "text-orange-500" : "hover:text-orange-500"
                     }`}
                   >
