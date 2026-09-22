@@ -43,8 +43,10 @@ const Header = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`transition text-xl ${
-                      isActive ? "text-orange-500" : "hover:text-orange-500"
+                    className={`transition text-xl  ${
+                      isActive
+                        ? "text-orange-500 font-semibold text-2xl"
+                        : "hover:text-orange-500"
                     }`}
                   >
                     {link.name}
