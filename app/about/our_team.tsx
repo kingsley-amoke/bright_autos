@@ -56,9 +56,14 @@ export default function OurTeam({
         </div>
       )}
 
-      <div className="mx-auto mt-8 grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="flex flex-wrap justify-center mx-auto mt-8 max-w-6xl w-full gap-6">
         {visibleMembers.map((member, i) => (
-          <TeamMemberCard key={i} member={member} />
+          <div
+            key={i}
+            className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] flex justify-center"
+          >
+            <TeamMemberCard member={member} />
+          </div>
         ))}
       </div>
     </section>
@@ -67,7 +72,7 @@ export default function OurTeam({
 
 function TeamMemberCard({ member }: { member: TeamMember }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
+    <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-3 shadow-sm w-full h-full">
       <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-slate-300">
         {member.image && (
           <Image

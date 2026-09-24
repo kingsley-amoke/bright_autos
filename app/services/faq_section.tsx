@@ -14,35 +14,7 @@ const FAQSection = () => {
           Frequently Asking Questions
         </h2>
       </div>
-      <FaqAccordion
-        items={[
-          {
-            question: "How long does a typical service appointment take?",
-            answer: "...",
-          },
-          {
-            question: "Can I schedule service for a vehicle I didn't buy here?",
-            answer: "...",
-          },
-          {
-            question: "How long does a typical service appointment take?",
-            answer: "...",
-          },
-          {
-            question: "Can I schedule service for a vehicle I didn't buy here?",
-            answer: "...",
-          },
-          {
-            question: "How long does a typical service appointment take?",
-            answer: "...",
-          },
-          {
-            question: "Can I schedule service for a vehicle I didn't buy here?",
-            answer: "...",
-          },
-        ]}
-        defaultOpenIndex={2}
-      />
+      <FaqAccordion items={faqs} defaultOpenIndex={2} />
     </section>
   );
 };
@@ -51,6 +23,7 @@ export default FAQSection;
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { faqs } from "../constants/faqs";
 
 function FaqAccordion({
   items = [],
