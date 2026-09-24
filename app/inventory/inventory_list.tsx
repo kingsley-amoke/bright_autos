@@ -1,14 +1,28 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import { cars } from "../constants/cars";
 import CarCard from "../components/car_card";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import { Car } from "../types/car";
+import { getCars } from "../actions/get_car";
 
 const InventoryList = () => {
+  const [dbCars, setDbCars] = useState<Array<Car>>(cars);
+
+  useEffect(() => {
+    fetchCarsFromDb();
+  }, []);
+
+  const fetchCarsFromDb = async () => {
+    const res = await getCars();
+    if (res.length < 1) return;
+    setDbCars(res);
+  };
+
   const searchParams = useSearchParams();
 
   const searchQuery = searchParams.get("search")?.toLowerCase() || "";
@@ -22,7 +36,7 @@ const InventoryList = () => {
   const mileage = searchParams.get("mileage");
   const location = searchParams.get("location");
 
-  const filteredCars = cars.filter((car) => {
+  const filteredCars = dbCars.filter((car) => {
     if (searchQuery) {
       const matchesSearch =
         car.condition?.toLowerCase().includes(searchQuery) ||
