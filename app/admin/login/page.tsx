@@ -29,7 +29,7 @@ export default function LoginPage() {
       setError(authError.message || "Invalid credentials. Please try again.");
       setLoading(false);
     } else {
-      router.push("/admin/upload");
+      router.replace("/admin/upload");
       router.refresh();
     }
   };
