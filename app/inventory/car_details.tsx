@@ -6,6 +6,7 @@ import PrimaryButton from "../components/primary_button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const CarDetails = ({
   car,
@@ -83,6 +84,14 @@ const CarDetails = ({
               <p>Buy Now</p>
               <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
             </PrimaryButton>
+            <div className="flex w-full justify-center items-center my-2">
+              <p>
+                Want to see more photos?.{" "}
+                <Link href="/contact#dealership" className="text-orange-500">
+                  Contact our sales/dealership
+                </Link>
+              </p>
+            </div>
           </>
         )}
       </div>

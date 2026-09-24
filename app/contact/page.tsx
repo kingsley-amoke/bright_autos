@@ -1,10 +1,8 @@
 "use client";
 
-import React from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import ContactHero from "./hero";
-import { quickActions } from "../constants/quick_actions";
 import QuickActionCard from "../services/quick_action_card";
 import ResolveVehicle from "../components/resolve_vehicle";
 import ContactSidebar from "./contact_sidebar";
@@ -16,10 +14,39 @@ import {
   phone,
 } from "../constants/contact_info";
 import { contactActions } from "../constants/contact_actions";
+import { ServerActionResponse, SupportInquiry } from "../types/email";
+import { sendSupportEmail } from "../actions/send_email";
+import DealershipDirectory from "./delearship";
 
 const ContactUs = () => {
-  const handleSubmitForm = (values: Record<string, string>) => {
+  const handleSubmitForm = async (values: Partial<SupportInquiry>) => {
+    //TODO:Forward contact to mail
+
     console.log(values);
+
+    const rawDataObject: SupportInquiry = {
+      firstName: values.firstName!,
+      lastName: values.lastName!,
+      email: values.email!,
+      phone: values.phone!,
+      department: values.department!,
+      subject: values.subject!,
+      message: values.message!,
+      contactMethod: values.contactMethod!,
+      vehicle: values.vehicle,
+      vin: values.vin,
+    };
+
+    console.log(rawDataObject);
+
+    const response: ServerActionResponse =
+      await sendSupportEmail(rawDataObject);
+
+    if (response.success) {
+      console.log(response.message);
+    } else {
+      console.log(response.error);
+    }
   };
   return (
     <div className="bg-white text-black">
@@ -52,6 +79,12 @@ const ContactUs = () => {
             />
           </div>
         </div>
+      </section>
+      <section
+        className="bg-[#0f1422] text-white py-16 px-6 md:px-12 lg:px-24 font-sans min-h-screen flex flex-col justify-center"
+        id="dealership"
+      >
+        <DealershipDirectory />
       </section>
 
       <Footer />

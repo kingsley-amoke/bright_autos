@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { Form } from "../types/form";
 import TextField from "./text_field";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { SupportInquiry } from "../types/email";
 
 interface FormSection {
   id: string;
@@ -14,7 +15,7 @@ interface FormSection {
 
 interface ContactFormProps {
   sections?: FormSection[];
-  onSubmit: (values: Record<string, string>) => void | Promise<void>;
+  onSubmit: (values: Partial<SupportInquiry>) => void | Promise<void>;
 }
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
@@ -23,7 +24,7 @@ export default function ContactForm({
   sections = [],
   onSubmit,
 }: ContactFormProps) {
-  const [values, setValues] = useState<Record<string, string>>({});
+  const [values, setValues] = useState<Partial<SupportInquiry>>({});
   const [status, setStatus] = useState<FormStatus>("idle");
 
   const handleChange = (name: string, value: string) => {
@@ -91,7 +92,7 @@ export default function ContactForm({
                 <TextField
                   key={field.name}
                   field={field}
-                  value={values[field.name]}
+                  value={values[field.name as keyof SupportInquiry] ?? ""}
                   onChange={handleChange}
                 />
               ))}
