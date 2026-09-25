@@ -71,7 +71,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="admin@dealership.com"
-                className="w-full  border border-slate-700/60 rounded-xl py-3 pl-12 pr-4 text-sm text-white placeholder-gray-500 outline-none focus:border-[#e06733] focus:ring-1 focus:ring-[#e06733] transition-all"
+                className="w-full  border border-slate-700/60 rounded-xl py-3 pl-12 pr-4 text-sm placeholder-gray-500 outline-none focus:border-[#e06733] focus:ring-1 focus:ring-[#e06733] transition-all"
               />
             </div>
           </div>
@@ -90,7 +90,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full border border-slate-700/60 rounded-xl py-3 pl-12 pr-12 text-sm text-white placeholder-gray-500 outline-none focus:border-[#e06733] focus:ring-1 focus:ring-[#e06733] transition-all"
+                className="w-full border border-slate-700/60 rounded-xl py-3 pl-12 pr-12 text-sm placeholder-gray-500 outline-none focus:border-[#e06733] focus:ring-1 focus:ring-[#e06733] transition-all"
               />
               <button
                 type="button"
