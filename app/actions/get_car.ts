@@ -1,7 +1,7 @@
-import { Car } from "../types/car";
+import { Car, mapRowToCar } from "../types/car";
 import { createClient } from "../utils/supabase/client";
 
-export async function getCars() {
+export const getCars = async () => {
   const supabase = createClient();
 
   const { data, error } = await supabase.from("cars").select("*");
@@ -13,4 +13,20 @@ export async function getCars() {
     type: car.fuel_type,
     image: car.image_url,
   })) as Array<Car>;
-}
+};
+
+export const getCarById = async (id: string): Promise<Car> => {
+  const supabase = createClient();
+
+  const { data, error } = await supabase
+    .from("cars")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) {
+    throw new Error(`Failed to fetch car ${id}: ${error.message}`);
+  }
+
+  return mapRowToCar(data);
+};
