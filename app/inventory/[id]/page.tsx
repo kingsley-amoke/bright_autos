@@ -29,13 +29,27 @@ const CarDetailsPage = () => {
     const fetchCarFromDB = async () => {
       setLoading(true);
       setError(null);
+
       try {
         const res = await getCarById(carId);
-        if (!cancelled) setCar(res);
-      } catch (err: any) {
-        if (!cancelled) setError(err.message ?? "Failed to load car.");
+
+        if (!cancelled) {
+          if (!res) {
+            setError("Car not found.");
+            setCar(null);
+            return;
+          }
+
+          setCar(res);
+        }
+      } catch (err: unknown) {
+        if (!cancelled) {
+          setError(err instanceof Error ? err.message : "Failed to load car.");
+        }
       } finally {
-        if (!cancelled) setLoading(false);
+        if (!cancelled) {
+          setLoading(false);
+        }
       }
     };
 
@@ -49,11 +63,15 @@ const CarDetailsPage = () => {
   return (
     <div className="bg-white text-black">
       <Header />
+
       <main className="flex justify-center items-center w-full p-12">
         {loading && <p>Loading...</p>}
+
         {!loading && error && <p className="text-red-600">{error}</p>}
-        {!loading && !error && <CarDetails car={car!} />}
+
+        {!loading && !error && car && <CarDetails car={car} />}
       </main>
+
       <Footer />
     </div>
   );
