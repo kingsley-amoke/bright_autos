@@ -28,7 +28,7 @@ const CarDetails = ({
           <h2 className="font-bold text-2xl">{car.title}</h2>
           {/* <p className="text-gray-500 text-sm">VIN: {car.vin}</p> */}
         </div>
-        <p className="capitalize">{car.condition}</p>
+        <p className="capitalize text-teal-500">{car.condition}</p>
       </div>
       <div className="relative aspect-[4/3] w-full rounded-xl">
         <Image

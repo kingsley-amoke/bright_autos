@@ -1,8 +1,11 @@
 import { OpeningHour } from "../types/opening_hour";
 
-export const phone = "(555) 234-5678";
-export const email = "sales@dealership.com";
-export const supportEmail = "";
+export const homepage = "https://brightautos.com";
+export const phone = "+234 (708) 418 0478";
+export const email = "brightautos@gmail.com";
+export const address =
+  "6 Christ Anionting, Benin Sapele Rd, Off PZ Road, Oka, Benin City 300104, Edo State, Nigeria.";
+export const supportEmail = "support@brightautos.com";
 export const tiktok =
   "https://www.tiktok.com/@brightson.realestateltd?_r=1&_t=ZG-99oQsfTFNrt";
 export const facebook =

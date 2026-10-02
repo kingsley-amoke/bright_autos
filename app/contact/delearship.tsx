@@ -1,5 +1,6 @@
 import React from "react";
 import { MapPin, Phone, Mail, Clock, Wrench } from "lucide-react";
+import { address, email, phone } from "../constants/contact_info";
 
 export default function DealershipDirectory() {
   return (
@@ -30,8 +31,7 @@ export default function DealershipDirectory() {
               </span>
               <h3 className="text-base font-bold mb-2">Flagship Location</h3>
               <p className="text-xs text-gray-400 leading-normal">
-                6 Christ Anionting, Benin Sapele Rd, Off PZ Road, Oka, Benin
-                City 300104, Edo State, Nigeria.
+                {address}
               </p>
             </div>
           </div>
@@ -48,10 +48,10 @@ export default function DealershipDirectory() {
                 Sales & Consultations
               </h3>
               <a
-                href="tel:+2347084180478"
+                href={`tel:${phone}`}
                 className="text-xs text-gray-400 hover:text-white transition-colors"
               >
-                +234 (708) 418 0478
+                {phone}
               </a>
             </div>
           </div>
@@ -66,10 +66,11 @@ export default function DealershipDirectory() {
               </span>
               <h3 className="text-base font-bold mb-1">Online Support</h3>
               <a
-                href="mailto:brightautos@gmail.com"
+                href={`mailto:${email}`}
                 className="text-xs text-gray-400 hover:text-white transition-colors"
               >
-                brightautos@gmail.com
+                {email
+                }
               </a>
             </div>
           </div>

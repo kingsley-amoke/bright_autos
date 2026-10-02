@@ -30,3 +30,19 @@ export const getCarById = async (id: string): Promise<Car> => {
 
   return mapRowToCar(data);
 };
+
+export const getFirstCar = async (): Promise<Car> => {
+  const supabase = createClient();
+
+  const { data, error } = await supabase
+    .from("cars")
+    .select("*")
+    .limit(1)
+    .single();
+
+  if (error) {
+    throw new Error(`Failed to fetch the first car: ${error.message}`);
+  }
+
+  return mapRowToCar(data);
+};

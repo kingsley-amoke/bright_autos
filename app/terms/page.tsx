@@ -3,6 +3,7 @@ import TermsAndConditions from "./terms_and_conditions";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { termsData } from "../constants/terms";
+import { email, homepage } from "../constants/contact_info";
 
 const TermsPage = () => {
   return (
@@ -11,8 +12,8 @@ const TermsPage = () => {
       <TermsAndConditions
         title="TERMS & CONDITIONS"
         sections={termsData}
-        contactEmail="contact@dealership.com"
-        contactWebsite="://dealership.com"
+        contactEmail={email}
+        contactWebsite={homepage}
       />
       <Footer />
     </div>

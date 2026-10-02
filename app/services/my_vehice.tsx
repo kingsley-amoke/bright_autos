@@ -1,17 +1,37 @@
 "use client";
 
 import { FileWarning, RefreshCcwIcon, TriangleAlert } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SearchBar from "../components/search_bar";
 import MyVehicleCard from "./my_vehicle_card";
 import { quickActions } from "../constants/quick_actions";
 import QuickActionCard from "./quick_action_card";
 import ResolveVehicle from "../components/resolve_vehicle";
 import { cars } from "../constants/cars";
+import { getCars, getFirstCar } from "../actions/get_car";
+import { Car } from "../types/car";
 
 const MyVehicle = () => {
-  const [myCar, setMyCar] = useState(cars[0]);
+  const [myCars, setMyCars] = useState<Array<Car>>([]);
+  const [myCar, setMyCar] = useState<Car | null>(null);
   const [notFoundText, setNotFoundText] = useState<string | null>(null);
+
+  useEffect(() => {
+    getMyCar();
+  }, [myCars.length]);
+
+  const getMyCar = async () => {
+    const res = await getCars();
+
+    if (!res || res.length === 0) {
+      setMyCars(res);
+      setNotFoundText("No cars found in the inventory");
+      return;
+    }
+
+    setMyCars(res);
+    setMyCar(myCars[0]);
+  };
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     const formData = new FormData(e.currentTarget);
@@ -23,7 +43,7 @@ const MyVehicle = () => {
     }
 
     if (searchText.trim()) {
-      const car = cars.find(
+      const car = myCars.find(
         (car) =>
           car.condition?.toLowerCase().includes(searchText) ||
           car.model?.toLowerCase().includes(searchText) ||
@@ -66,7 +86,7 @@ const MyVehicle = () => {
         </div>
         <div className="flex flex-col md:flex-row gap-16 justify-between items-start">
           <div className="flex-1">
-            <MyVehicleCard car={myCar} />
+            {myCar ? <MyVehicleCard car={myCar} /> : <p>Car loading...</p>}
           </div>
           <div className="flex-1">
             <p className="font-bold uppercase text-2xl">Quick Actions</p>
